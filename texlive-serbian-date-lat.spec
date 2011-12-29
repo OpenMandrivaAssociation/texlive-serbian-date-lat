@@ -17,28 +17,18 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Babel defines dates for Serbian texts, in Latin script. The
 style it uses does not match current practices. The present
 package defines a \date command that solves the problem.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -49,7 +39,6 @@ package defines a \date command that solves the problem.
 %doc %{_texmfdistdir}/doc/latex/serbian-date-lat/SerbianDateLat.tex
 %doc %{_texmfdistdir}/doc/latex/serbian-date-lat/TestDateLat.pdf
 %doc %{_texmfdistdir}/doc/latex/serbian-date-lat/TestDateLat.tex
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -60,5 +49,3 @@ package defines a \date command that solves the problem.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
