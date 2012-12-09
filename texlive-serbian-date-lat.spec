@@ -49,3 +49,17 @@ package defines a \date command that solves the problem.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20110624-2
++ Revision: 755912
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20110624-1
++ Revision: 719510
+- texlive-serbian-date-lat
+- texlive-serbian-date-lat
+- texlive-serbian-date-lat
+- texlive-serbian-date-lat
+
