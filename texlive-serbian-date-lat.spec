@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-serbian-date-lat
 Version:	20110624
-Release:	9
+Release:	10
 Summary:	Updated date typesetting for Serbian
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/babel-contrib/serbian-date-lat
