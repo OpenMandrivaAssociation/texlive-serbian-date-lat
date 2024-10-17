@@ -3,7 +3,7 @@ Version:	23446
 Release:	2
 Summary:	Updated date typesetting for Serbian
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/babel-contrib/serbian-date-lat
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/babel-contrib/serbian-date-lat
 License:	GPL2
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.doc.r%{version}.tar.xz
