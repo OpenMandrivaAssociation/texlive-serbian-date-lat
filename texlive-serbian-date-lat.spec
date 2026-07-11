@@ -1,45 +1,21 @@
-Name:		texlive-serbian-date-lat
-Version:	23446
-Release:	2
+%global tl_name serbian-date-lat
+%global tl_revision 23446
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Updated date typesetting for Serbian
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/babel-contrib/serbian-date-lat
-License:	GPL2
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/language/serbian/filipovic/serbian-date-lat
+License:	gpl2
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-date-lat.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Babel defines dates for Serbian texts, in Latin script. The
-style it uses does not match current practices. The present
-package defines a \date command that solves the problem.
+Babel defines dates for Serbian texts, in Latin script. The style it
+uses does not match current practices. The present package defines a
+\date command that solves the problem.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/serbian-date-lat/serbian-date-lat.sty
-%doc %{_texmfdistdir}/doc/latex/serbian-date-lat/README
-%doc %{_texmfdistdir}/doc/latex/serbian-date-lat/SerbianDateLat.pdf
-%doc %{_texmfdistdir}/doc/latex/serbian-date-lat/SerbianDateLat.tex
-%doc %{_texmfdistdir}/doc/latex/serbian-date-lat/TestDateLat.pdf
-%doc %{_texmfdistdir}/doc/latex/serbian-date-lat/TestDateLat.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
